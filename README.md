@@ -67,6 +67,7 @@ Run the Docker container
 where
 
 -t news-aggregator-ui: Tags the image with the name news-aggregator-ui.
+
 . : Specifies the current directory as the build context.
 
 ### Step 3: Access the Application
