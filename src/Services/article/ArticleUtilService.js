@@ -37,8 +37,13 @@ const ArticleUtilService = {
       return ArticleUtilService.shuffleArray(articles);
     }
 
-    const { selectedCategories, selectedSources, selectedAuthors } =
-      preferences;
+    const {
+      selectedCategories = [],
+      selectedSources = [],
+      selectedAuthors = [],
+    } = preferences;
+
+    console.log(preferences);
 
     return articles
       .sort((a, b) => {
@@ -46,18 +51,39 @@ const ArticleUtilService = {
         let scoreB = 0;
 
         if (selectedCategories.length > 0) {
-          if (selectedCategories.includes(a.category)) scoreA += 3;
-          if (selectedCategories.includes(b.category)) scoreB += 3;
+          const lowerCaseCategories = selectedCategories.map((cat) =>
+            cat.toLowerCase()
+          );
+          if (
+            a.category &&
+            lowerCaseCategories.includes(a.category.toLowerCase())
+          )
+            scoreA += 3;
+          if (
+            b.category &&
+            lowerCaseCategories.includes(b.category.toLowerCase())
+          )
+            scoreB += 3;
         }
 
         if (selectedSources.length > 0) {
-          if (selectedSources.includes(a.source)) scoreA += 2;
-          if (selectedSources.includes(b.source)) scoreB += 2;
+          const lowerCaseSources = selectedSources.map((src) =>
+            src.toLowerCase()
+          );
+          if (a.source && lowerCaseSources.includes(a.source.toLowerCase()))
+            scoreA += 2;
+          if (b.source && lowerCaseSources.includes(b.source.toLowerCase()))
+            scoreB += 2;
         }
 
         if (selectedAuthors.length > 0) {
-          if (selectedAuthors.includes(a.author)) scoreA += 1;
-          if (selectedAuthors.includes(b.author)) scoreB += 1;
+          const lowerCaseAuthors = selectedAuthors.map((auth) =>
+            auth.toLowerCase()
+          );
+          if (a.author && lowerCaseAuthors.includes(a.author.toLowerCase()))
+            scoreA += 1;
+          if (b.author && lowerCaseAuthors.includes(b.author.toLowerCase()))
+            scoreB += 1;
         }
 
         return scoreB - scoreA;
