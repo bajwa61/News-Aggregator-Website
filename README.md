@@ -50,6 +50,7 @@ Before running the application, ensure you have installed Docker on your machine
 If you haven't already, clone the repository:
 
 git clone https://github.com/yourusername/your-repo.git
+
 cd your-repo
 
 ### Step 2: Build and Run the Docker Container
