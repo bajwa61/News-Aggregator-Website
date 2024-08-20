@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const ArticleCard = ({ article }) => {
   if (!article?.title || !article?.imageUrl) return null;

@@ -84,8 +84,11 @@ const HomePage = () => {
       }, 700);
 
       return () => clearTimeout(debounceTimeout);
+    } else {
+      setArticles([]);
+      setFilteredArticles([]);
     }
-  }, [query, fetchAndPrioritizeArticles]);
+  }, [query]);
 
   const handleFiltersChange = (filters) => {
     const filtered = ArticleUtilService.filterArticles(articles, filters);
@@ -103,9 +106,7 @@ const HomePage = () => {
       <Navbar
         title="News Aggregator"
         setIsModalOpen={setIsModalOpen}
-        query={query}
         onChange={setQuery}
-        showFilters={articles.length > 0}
       />
       <div className="container lg:w-[1200px] w-[95vw] md:w-[85vw] mx-auto mt-10 min-h-[500px]">
         {articles.length > 0 && <Filters setIsOpenModal={setIsFilterOpen} />}

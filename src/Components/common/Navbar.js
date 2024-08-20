@@ -34,7 +34,7 @@ export const SearchIcon = ({
   </svg>
 );
 
-const Navbar = ({ query, onChange, showFilters, setIsModalOpen }) => {
+const Navbar = ({ onChange, setIsModalOpen }) => {
   const [isScroll, setIsScroll] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -91,7 +91,7 @@ const Navbar = ({ query, onChange, showFilters, setIsModalOpen }) => {
             <input
               type="text"
               name="query"
-              onChange={(e) => onChange("query", e.target.value)}
+              onChange={(e) => onChange(e.target.value)}
               id="search-navbar"
               className="block w-[380px] p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-secondary lg:w-[500px]"
               placeholder="Search..."
@@ -142,7 +142,7 @@ const Navbar = ({ query, onChange, showFilters, setIsModalOpen }) => {
               <input
                 type="text"
                 name="query"
-                onChange={(e) => onChange("query", e.target.value)}
+                onChange={(e) => onChange(e.target.value)}
                 id="search-navbar"
                 className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-secondary"
                 placeholder="Search..."
