@@ -58,11 +58,11 @@ Navigate to the root directory of your project (where the Dockerfile is located)
 
 Build the Docker image
 
-docker build -t news-aggregator-ui .
+**docker build -t news-aggregator-ui .**
 
 Run the Docker container
 
-docker run -p 3000:3000 news-aggregator-ui
+**docker run -p 3000:3000 news-aggregator-ui**
 
 where
 
