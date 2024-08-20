@@ -16,6 +16,9 @@ const ArticleConstantService = {
     "Politics",
   ],
   sources: [
+    "CNET",
+    "BBC News",
+    "The Guardian",
     "Gizmodo.com",
     "IGN",
     "Vida Extra",

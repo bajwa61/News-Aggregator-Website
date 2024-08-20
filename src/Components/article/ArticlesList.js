@@ -15,20 +15,14 @@ const ArticlesList = ({ articles }) => {
       startIndex,
       startIndex + articlesPerPage
     );
-
     setLoadedArticles((prevArticles) => [...prevArticles, ...newArticles]);
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
-    loadArticles();
-  }, [articles]);
-
-  const refreshArticles = () => {
+    setLoadedArticles(articles);
     setCurrentPage(1);
-    setLoadedArticles([]);
-    loadArticles();
-  };
+  }, [articles]);
 
   return (
     <InfiniteScroll
@@ -40,15 +34,6 @@ const ArticlesList = ({ articles }) => {
         <p className="text-center">
           <b>Yay! You have seen it all</b>
         </p>
-      }
-      refreshFunction={refreshArticles}
-      pullDownToRefresh
-      pullDownToRefreshThreshold={50}
-      pullDownToRefreshContent={
-        <h3 className="text-center">&#8595; Pull down to refresh</h3>
-      }
-      releaseToRefreshContent={
-        <h3 className="text-center">&#8593; Release to refresh</h3>
       }
     >
       {loadedArticles.length > 0 ? (

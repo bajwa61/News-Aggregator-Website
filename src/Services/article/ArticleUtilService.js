@@ -1,21 +1,27 @@
 const ArticleUtilService = {
   filterArticles: (
     articles,
-    { selectedCategories: categories, selectedSources: sources, date }
+    {
+      selectedCategories: categories = [],
+      selectedSources: sources = [],
+      date = "",
+    }
   ) => {
     return articles.filter((article) => {
-      const matchesCategory = categories.length
-        ? categories.some(
-            (category) =>
-              category.toLowerCase() === article.category.toLowerCase()
-          )
-        : true;
+      const matchesCategory =
+        categories.length > 0
+          ? categories.some(
+              (category) =>
+                category.toLowerCase() === article.category.toLowerCase()
+            )
+          : true;
 
-      const matchesSource = sources.length
-        ? sources.some(
-            (source) => source.toLowerCase() === article.source.toLowerCase()
-          )
-        : true;
+      const matchesSource =
+        sources.length > 0
+          ? sources.some(
+              (source) => source.toLowerCase() === article.source.toLowerCase()
+            )
+          : true;
 
       const matchesDate = date
         ? new Date(article.publishedAt).toDateString() ===

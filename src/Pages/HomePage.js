@@ -88,7 +88,6 @@ const HomePage = () => {
   }, [query, fetchAndPrioritizeArticles]);
 
   const handleFiltersChange = (filters) => {
-    console.log(filters);
     const filtered = ArticleUtilService.filterArticles(articles, filters);
     setFilteredArticles(filtered);
   };
