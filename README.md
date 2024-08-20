@@ -3,7 +3,7 @@
 ## Introduction
 The news aggregator website is a mobile-friendly platform developed using React.js. Users can search for articles using the search box, and all relevant articles are then fetched and displayed from multiple news sources.
 
-**Live Link:** [Your Live Link Here]
+**Live Link:** news-aggregator-website-eight.vercel.app
 
 ## Features
 
